@@ -1,15 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Document metadata -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
+
+    <!-- Local stylesheet -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Font optimization and import from Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Contact section -->
+    <section class="contact">
+        <!-- Section heading -->
+        <span><h1>Contact <span class="me">Me!</span></h1></span>
+
+        <div class="container">
+            <!--
+                Contact form:
+                - action: replace "your-form-id" with your actual Formspree form ID
+                - method: POST to send form data
+            -->
+            <form action="https://formspree.io/f/your-form-id" method="POST">
+
+                <!-- Grouped inputs for layout -->
+                <div class="inputs">
+                    <!-- Name input (required) -->
+                    <input type="text" name="name" placeholder="Your Name" required>
+
+                    <!-- Email input (required). Formspree expects the reply email in _replyto -->
+                    <input type="email" name="_replyto" placeholder="Your Email" required>
+                </div>
+
+                <div class="inputs">
+                    <!-- Optional mobile number -->
+                    <input type="text" name="mobile" placeholder="Enter mobile number">
+
+                    <!-- Subject input (required) -->
+                    <input type="text" name="subject" placeholder="Subject" required>
+                </div>
+
+                <!-- Message textarea (required) -->
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+                <!-- Submit button -->
+                <button type="submit">Send Message</button>
+            </form>
+            <!-- End of form -->
+        </div>
+    </section>
+
+    <!-- Local JavaScript (optional behavior/validation) -->
     <script src="script.js"></script>
 </body>
 </html>

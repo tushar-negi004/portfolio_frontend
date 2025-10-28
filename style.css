@@ -1,18 +1,96 @@
 * {
-    margin : 0;
-    padding : 0;
-    box-sizing : border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     text-decoration: none;
-    border : none;
-    outline : none;
+    border: none;
+    outline: none;
     scroll-behavior: smooth;
     font-family: 'Poppins', sans-serif;
 }
 
-:root{
-    --bg-color : #fdfdfd;
-    --text-color : #333;
-    --main-color : #754ef9;
-    --white-color : #fdfdfd;
-    --shadow-color : rgba(0,0,0,0.2);
+:root {
+    --bg-color: #fdfdfd;
+    --text-color: #333;
+    --main-color: #754ef9;
+    --white-color: #fdfdfd;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+
+/*Styles for contact me starts here*/
+/* Contact section header styling */
+.contact span h1 {
+    color: var(--text-color);
+    text-align: center;
+}
+
+/* Form inputs layout: responsive grid that adapts to available width */
+.inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2vh;
+    padding: 3vh;
+}
+
+/* Wrapper for the form to center and constrain width */
+.container {
+    width: 60vw;
+    margin: 0 auto;
+    padding: 5vh 0;
+}
+
+/* Large multi-line text input styling */
+form textarea {
+    padding: 3vh;
+    display: block;
+    margin: 3vh auto;
+    width: 57vw;
+    resize: none;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+}
+
+/* Focus state for textarea to indicate active input */
+form textarea:focus{
+    border: 2px solid var(--main-color);
+    box-shadow: 0 1px 1px var(--main-color);
+}
+
+/* Primary submit/button styling */
+form button {
+    display: block;
+    margin: 10px auto;
+    background-color: var(--bg-color);
+    color: var(--main-color);
+    cursor: pointer;
+    padding: 15px;
+    border:2px solid var(--main-color);
+    border-radius: 10px;
+}
+
+/* Individual input fields inside the grid */
+.inputs input {
+    padding: 10px;
+    border: 1px solid var(--text-color);
+    border-radius: 12px;
+}
+
+/* Focus state for single-line inputs */
+.inputs input:focus{
+    border: 2px solid var(--main-color);
+    box-shadow: 0 1px 2px var(--main-color);
+}
+
+/* Hover state for the form button to provide visual feedback */
+form button:hover{
+    background-color: var(--main-color);
+    color: var(--white-color);
+    box-shadow: 0 2px 4px var(--main-color),
+    0 -2px 4px var(--main-color);
+}
+
+/* Highlighted text color for elements with .me class */
+.me{
+    color: var(--main-color);
 }
