@@ -1,15 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="original.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
 </head>
+
 <body>
+
+    <!-- Header Section -->
+
+    <header class="header">
+        <a href="#" class="Portfolio">Portfolio</a>
+        <nav class="navbar">
+            <a href="#home" class="act">Home</a>
+            <a href="#about" class="act">About</a>
+            <a href="#services" class="act">Services</a>
+            <a href="#portfolio" class="act">Portfolio</a>
+            <a href="#projects" class="act">Projects</a>
+        </nav>
+        <i class='bx bx-moon' id="dark-mode-icon"></i>
+        <i class='bx bx-menu' id="menu-icon"></i>
+    </header>
+
+    <!-- Home Section -->
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello, I am</h3>
+            <h1>Avigat Mahajan</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse nesciunt blanditiis natus molestias id
+                reprehenderit saepe quod, praesentium dolorum, earum cupiditate mollitia, debitis ad. Ab veritatis
+                dolorum corrupti. Culpa, optio!</p>
+
+            <div class="social-media">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-linkedin'></i></a>
+            </div>
+
+            <a href="#" class="btn">Download CV</a>
+        </div>
+
+        <div class="professional-container">
+
+            <div class="professional-box">
+
+                <div class="profession" style="--i:0">
+                    <i class='bxr  bx-code-alt'>
+                        <h3>Web Developer</h3>
+                    </i>
+                </div>
+                <div class="profession" style="--i:1">
+                    <i class='bxr  bx-code-alt'>
+                        <h3>UI/UX Designer</h3>
+                    </i>
+                </div>
+                <div class="profession" style="--i:2">
+                    <i class='bxr  bx-code-alt'>
+                        <h3>Graphic Designer</h3>
+                    </i>
+                </div>
+                <div class="profession" style="--i:3">
+                    <i class='bxr  bx-code-alt'>
+                        <h3>Content Creator</h3>
+                    </i>
+                </div>
+                <div class="circle"></div>
+            </div>
+            <div class="overlay"></div>
+        </div>
+        <div class="home-img">
+            <img src="images/home.png" alt="home image">
+        </div>
+    </section>
+
+
+    <!--section-design  -->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="images/about.png" alt="about image">
+        </div>
+
+        <div class="about-content">
+            <h2 class="heading">About<span> Me</span></h2>
+            <h3>Hi, I'm here to help on your Next Project</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint consectetur soluta quam blanditiis maiores
+                nisi, velit modi voluptatem adipisci officiis impedit nobis officia quibusdam animi deleniti
+                perferendis! Nihil repellendus error possimus? Fugit reiciendis minus aspernatur consequuntur enim
+                ratione libero facere ad nam quisquam itaque iusto repudiandae deleniti, quod voluptatum? Consequatur
+                vero ipsum, libero aut molestiae consequuntur architecto aliquam nostrum incidunt dolor ad ex odio
+                facilis magni cumque, esse officiis ducimus laudantium tempore! Laboriosam labore incidunt obcaecati!
+                Magni, facere.</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </section>
+
+
+    <!--section class services-->
+
+
+    <section class="services" id="services">
+        <h2 class="heading">My <span> Services</span></h2>
+        <div class="services-container">
+        </div>
+    </section>
+
+    <!-- Scroll Reveal JS -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--script.js file-->
     <script src="script.js"></script>
 </body>
+
 </html>

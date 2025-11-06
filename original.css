@@ -1,0 +1,826 @@
+/* style.css
+    Simple, commented stylesheet for the portfolio header and global defaults.
+    Path: /home/avigat/coding/portfolio_frontend/style.css
+*/
+
+/* Reset / global defaults
+    - Remove default spacing, include border-box sizing for predictable layout,
+    - Remove default link underlines and outlines, set smooth scrolling and site font.
+*/
+* {
+    margin: 0;
+    /* reset default margins */
+    padding: 0;
+    /* reset default padding */
+    box-sizing: border-box;
+    /* include padding/border in element size calculations */
+    text-decoration: none;
+    /* remove underlines on links by default */
+    border: none;
+    /* reset border for form elements, images, etc. */
+    outline: none;
+    /* remove default focus outlines (manage focus styles separately) */
+    scroll-behavior: smooth;
+    /* smooth scrolling for in-page anchors */
+    font-family: 'Poppins', sans-serif;
+    /* site-wide font */
+}
+
+/* CSS custom properties (variables)
+    - Centralize colors so theme can be changed easily.
+*/
+:root {
+    --bg-color: #fdfdfd;
+    /* page background color */
+    --text-color: #333;
+    /* default text color */
+    --main-color: #754ef9;
+    /* primary accent color (used for branding/highlights) */
+    --white-color: #fdfdfd;
+    /* white/near-white used for contrasts */
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    /* subtle shadow color for depth */
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Header container     
+- Fixed to top so it stays visible while scrolling,
+- Uses flexbox to align items horizontally,
+    - z-index keeps header above page content,
+    - Background is a soft tint that contrasts the main color.
+*/
+.header {
+    display: flex;
+    /* horizontal layout for header children */
+    top: 0px;
+    /* stick to top of viewport */
+    left: 0;
+    padding: 2rem 7%;
+    width: 100%;
+    /* full width */
+    align-items: center;
+    /* vertically center header content */
+    position: fixed;
+    /* fixed positioning so header remains visible on scroll */
+    z-index: 1000;
+    justify-content: center;
+    /* ensure header sits above other content */
+    background-color: transparent;
+    transition: 0.5s;
+
+}
+
+.header.sticky {
+    background-color: var(--bg-color);
+    box-shadow: 0 .1rem 1rem var(--text-color);
+}
+
+/* Branding / site title (Portfolio)
+    - Placed on the left of the header; margin-right:auto pushes other items to the right.
+    - Larger font size and accent color for visibility.
+*/
+
+.Portfolio {
+    cursor: default;
+    /* not clickable, show default cursor */
+    display: flex;
+    /* enable alignment and spacing inside if needed */
+    margin-right: auto;
+    /* push following items to the right of the header */
+    font-size: 2.5rem;
+    /* large title size */
+    color: var(--main-color);
+    /* use primary accent color for the brand/title */
+    font-weight: 600;
+    /* normal font weight for the title */
+
+}
+
+/* Navbar link styles
+    - Ensures anchor text inside .navbar uses the specified contrast color.
+    - Additional styles (hover, active, spacing) can be added here.
+*/
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar a {
+    color: var(--white-color);
+    /* use greyish-white/near-white for navbar link text */
+    margin-right: 3.5rem;
+    position: relative;
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+/* .navbar a.act::before {
+content: '';
+position: absolute;
+left:0;
+bottom: -6px;
+width:100%;
+height: .2rem;
+background-color: var(--white-color);
+} */
+
+.navbar a.act:hover {
+    color: var(--white-color);
+}
+
+.navbar a.act::after {
+    position: absolute;
+    content: '';
+    height: 0.125rem;
+    width: 0;
+    left: 0;
+    background-color: var(--white-color);
+    bottom: -10px;
+    transition: all 0.3s;
+}
+
+
+
+/*
+prepares an invisible underline line ready to change its width to 100% on 
+*/
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+.header.sticky .navbar a {
+    color: var(--text-color);
+}
+
+.header.sticky .navbar a.act {
+    color: var(--main-color);
+}
+
+.header.sticky .navbar a::before {
+    background-color: var(--bg-color);
+    opacity: .7;
+}
+
+#dark-mode-icon {
+    font-size: 2.5rem;
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+.header.sticky #dark-mode-icon {
+    opacity: 0.9;
+    color: var(--main-color);
+}
+
+.header.sticky .navbar a:hover::after {
+    background-color: var(--main-color);
+}
+
+
+.header.sticky .navbar a.act::after {
+    position: absolute;
+    content: '';
+    height: 0.125rem;
+    width: 0;
+    left: 0;
+    background-color: var(--main-color);
+    bottom: -10px;
+    transition: all 0.3s;
+}
+
+
+#menu-icon {
+    font-size: 2.5rem;
+    color: var(--white-color);
+    cursor: pointer;
+    display: none;
+}
+
+section {
+    min-height: 100vh;
+    padding: 10rem 7% 2rem;
+}
+
+
+.home {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.home .home-content {
+    max-width: 44rem;
+}
+
+.home-content h3 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: .3;
+}
+
+.home-content h1 {
+    font-size: 5.6rem;
+    font-weight: 700;
+    margin-bottom: .3rem;
+}
+
+.home-content p {
+    font-size: 1.5rem;
+}
+
+.home-content .social-media a {
+    display: inline-flex;
+    font-size: 2rem;
+    color: var(--main-color);
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    border: 0.2rem solid transparent;
+    border-radius: 50%;
+    box-shadow: 0 .2rem .5rem var(--shadow-color);
+    margin: 2.5rem 1.5rem 3rem 0;
+    transition: 0.2s ease-in;
+    background: transparent;
+}
+
+
+.home-content .social-media a:hover {
+    background: transparent;
+    background-color: var(--main-color);
+    color: var(--bg-color);
+}
+
+.btn {
+    display: inline-block;
+    padding: 1.2rem 2.8rem;
+    border: .2rem solid transparent;
+    border-radius: .6rem;
+    font-weight: 600;
+    letter-spacing: .2rem;
+    box-shadow: 0 .2rem .5rem var(--main-color);
+    color: var(--white-color);              /* text color white */
+    background-color: var(--main-color);    /* button background purple */
+    transition: .2s ease-in;
+}
+
+.btn:hover {
+    background-color: var(--white-color);   /* background turns white */
+    color: var(--main-color);               /* text becomes purple */
+    border-color: var(--main-color);        /* optional: add border to keep definition */
+}
+
+.home .professional-container {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 768px;
+    height: 768px;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+
+.home .professional-container .professional-box {
+    position: absolute;
+    height: 768px;
+    width: 768px;
+    border-radius: 50%;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: rotation 14s ease-in infinite; 
+}
+
+@keyframes rotation{
+     0%,20%{
+        transform: rotate(0deg);
+     }
+     25%,45%{
+        transform: rotate(-90deg);
+     }
+     50%,75%{
+        transform: rotate(-180deg);
+     }
+     80%,95%{
+        transform: rotate(-270deg);
+     }
+     100%{
+        transform: rotate(-360deg);
+     }
+}
+
+.home .professional-container .profession {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: var(--main-color);
+    transform: rotate(calc(360deg/ 4*var(--i)));
+    transform-origin: 384px;
+    left: 0;
+    padding: 13px 0;
+    background: var(--bg-color);
+}
+
+.home .professional-container .profession:nth-child(1) i {
+    margin-right: 15px;
+}
+
+.home .professional-container .profession :nth-child(2),
+.home .professional-container .profession :nth-child(4) {
+    padding-bottom: 20px;
+}
+
+.home .profession i {
+    font-size: 3.8rem;
+}
+
+.home .profession h3 {
+    font-size: 3.8rem;
+    line-height: 1;
+    font-weight: 600;
+}
+
+.home .professional-box .circle {
+    width: 560px;
+    height: 560px;
+    border: 3px solid var(--main-color);
+    border-radius: 50%;
+}
+
+.home .professional-container .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-top: 384px solid var(--main-color);
+    border-right: 384px solid var(--main-color);
+    border-bottom: 384px solid var(--main-color);
+    border-left: 384px solid transparent;
+    z-index: 1;
+}
+
+.home-img {
+  position: absolute;
+  top: 70%;
+  right: 1%; /* adjust how close to the right edge it sits */
+  transform: translateY(-50%);
+  height: auto;
+  width: 40%; /* you can tweak: 35% - 45% depending on how large you want it */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2; /* ensure it sits above the purple overlay */
+}
+
+.home-img img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+span {
+    color: var(--main-color);
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+.about-img img {
+    width: 40vw;
+}
+
+.heading {
+    font-size: 4.5rem;
+    text-align: center;
+}
+
+.about-content {
+    text-align: left;
+    line-height: 1.2;
+}
+
+.about-content h3 {
+    font-size: 2rem;
+}
+
+.about-content p {
+    font-size: 1.6rem;
+    margin: 2rem 0 3rem;
+}
+.about-content .heading{
+    line-height:2;
+}
+.services {
+    min-height: auto;
+    padding-bottom: 7rem;
+}
+
+.services h2 {
+    margin-bottom: 5rem;
+}
+
+.services .services-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem
+}
+
+.services-container .service-box {
+    flex: 1 1 30rem;
+    background: var(--bg-color);
+    padding: 3rem 2rem 4rem;
+    border-radius: 2rem;
+    box-shadow: 0 .1rem .5rem var(--shadow-color);
+    text-align: center;
+    border-top: .6rem solid var(--main-color);
+    border-bottom: .6rem solid var(--main-color);
+    transition: .5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 40rem;
+}
+
+.service-box i {
+    font-size: 7rem;
+    color: var(--main-color);
+}
+
+.service-box h3 {
+    font-size: 2.6rem;
+    transition: .5s;
+}
+
+.service-box:hover h3 {
+    color: var(--main-color);
+}
+
+.service-box p {
+    font-size: 1.6rem;
+    margin: 1rem 0 3rem;
+}
+
+.services-container .service-box:hover {
+    transform: scale(1.07);
+}
+
+
+
+/*  BREAKPOINTS  */
+
+
+
+
+@media (max-width: 1349px){
+    html{
+        font-size:55%;
+    }
+    
+    .home .professional-container{
+        height:85.8rem;
+    }
+
+    .home .professional-container .professional-box{
+        right: -12rem;
+        height:85.8rem;
+    }
+    .home .professional-container .overlay {
+        right:-8rem;
+    }
+}
+
+.dark-mode{
+    --bg-color:#0b061f;
+    --text-color: #fdfdfd;
+    --shadow-color:rgba(0,0,0,.7);
+}
+
+
+/* WIDTH BETWEEN 1350 AND 1443*/
+
+@media (min-width: 1350px) and (max-width: 1443px) {
+  html {
+    font-size: 64%;
+  }
+
+  .Portfolio{
+    position:relative;
+    left:-6.5rem;
+    font-size:3rem;
+  }
+  .navbar a{
+    font-size: 2.2rem;
+  }
+  .home {
+    height: 100vh;
+    padding: 8rem 6% 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .home .home-content {
+    position:relative;
+    left:-6rem;
+  }
+  /* Keep full coverage diamond */
+  .home .professional-container {
+    width: 896px;
+    height: 896px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+
+  .home .professional-container .professional-box {
+    width: 896px;
+    height: 896px;      
+  }
+
+  /* Circle inside diamond */
+  .home .professional-box .circle {
+    position:relative;
+    width: 750px;
+    height: 750px;
+  }
+
+  .professional-box .profession{
+    z-index:1;
+  }
+
+  /* Adjust purple overlay so it matches 950 container nicely */
+  .home .professional-container .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top: 448px solid var(--main-color);
+    border-right: 448px solid var(--main-color);
+    border-bottom: 448px solid var(--main-color);
+    border-left: 448px solid transparent;
+  }
+
+  .home .professional-container .profession {
+    transform-origin: 448px;
+  }
+  /* Profession text + icons inside circle */
+  .home .profession h3,
+  .home .profession i {
+    font-size: 2.8rem;
+  }
+
+  /* Left content text scaling */
+  .home-content h3 {
+    font-size: 3.5rem;
+  }
+
+  .home-content h1 {
+    font-size: 5.8rem;
+  }
+
+  .home-content p {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+
+  .home-content .social-media a {
+    width: 4.6rem;
+    height: 4.6rem;
+    font-size: 2.1rem;
+  }
+
+  .btn {
+    font-size: 1.5rem;
+    padding: 1.2rem 2.6rem;
+  }
+  .home-img{
+    top:60%;
+    right:7%;
+  }
+  
+}
+
+
+
+/* WHEN WIDTH IS > 1444 and < 1599 */
+
+@media (min-width: 1444px) and (max-width: 1599px) {
+  html {
+    font-size: 64%;
+  }
+
+  .Portfolio{
+    position:relative;
+    left:-6.5rem;
+    font-size:3rem;
+  }
+  .navbar a{
+    font-size: 2.2rem;
+  }
+  .home {
+    height: 100vh;
+    padding: 8rem 6% 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .home .home-content {
+    position:relative;
+    /* left:-6rem; */
+  }
+  /* Keep full coverage diamond */
+  .home .professional-container {
+    width: 896px;
+    height: 896px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+
+  .home .professional-container .professional-box {
+    width: 896px;
+    height: 896px;      
+  }
+
+  /* Circle inside diamond */
+  .home .professional-box .circle {
+    position:relative;
+    width: 750px;
+    height: 750px;
+  }
+
+  .professional-box .profession{
+    z-index:1;
+  }
+
+  /* Adjust purple overlay so it matches 950 container nicely */
+  .home .professional-container .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top: 448px solid var(--main-color);
+    border-right: 448px solid var(--main-color);
+    border-bottom: 448px solid var(--main-color);
+    border-left: 448px solid transparent;
+  }
+
+  .home .professional-container .profession {
+    transform-origin: 448px;
+  }
+  /* Profession text + icons inside circle */
+  .home .profession h3,
+  .home .profession i {
+    font-size: 2.8rem;
+  }
+
+  /* Left content text scaling */
+  .home-content h3 {
+    font-size: 3.5rem;
+  }
+
+  .home-content h1 {
+    font-size: 5.8rem;
+  }
+
+  .home-content p {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+
+  .home-content .social-media a {
+    width: 4.6rem;
+    height: 4.6rem;
+    font-size: 2.1rem;
+  }
+
+  .btn {
+    font-size: 1.5rem;
+    padding: 1.2rem 2.6rem;
+  }
+  .home-img{
+    top:60%;
+    right:6%;
+  }  
+}
+
+
+
+
+/* WHEN WIDTH  >= 1600 */
+
+
+@media (min-width: 1600px) {
+  html {
+    font-size: 72%;
+  }
+
+  .home {
+    height: 100vh;
+    padding: 10rem 8% 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Main circular container */
+  .home .professional-container {
+    width: 950px;
+    height: 950px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+
+  .home .professional-container .professional-box {
+    width: 950px;
+    height: 950px;
+  }
+
+  /* Adjust purple overlay to cover the full right half */
+  .home .professional-container .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top: 475px solid var(--main-color);
+    border-right: 475px solid var(--main-color);
+    border-bottom: 475px solid var(--main-color);
+    border-left: 475px solid transparent;
+  }
+
+  .home .professional-container .profession {
+    transform-origin: 475px;
+  }
+  /* Profession text + icons */
+  .home .profession h3,
+  .home .profession i {
+    font-size: 4.3rem;
+  }
+
+  .home-content h3 {
+    font-size: 4rem;
+  }
+
+  .home-content h1 {
+    font-size: 6.6rem;
+  }
+
+  .home-content p {
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+  }
+
+  .home-content .social-media a {
+    width: 5rem;
+    height: 5rem;
+    font-size: 2.4rem;
+  }
+
+  .btn {
+    font-size: 1.6rem;
+    padding: 1.5rem 3rem;
+  }
+
+    .home .professional-box .circle {
+    width: 820px;
+    height: 820px;
+  }
+
+  .home .profession h3 {
+    font-size: 2.9rem; /* smaller text inside circle */
+  }
+
+  .home .profession i {
+    font-size: 2.9rem; /* match the text icon size */
+  }
+
+  .home-img{
+    top:60%;  
+    right:4%;
+  }
+}
+
+
